@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* Media Queries */
+
+/* Até 420px → Azul */
+@media (max-width: 420px) {
+  h2 {
+    color: blue;
+  }
+  h2::after {
+    content: " (azul)";
+  }
+}
+
+/* De 421px até 768px → Laranja */
+@media (min-width: 421px) and (max-width: 768px) {
+  h2 {
+    color: orange;
+  }
+  h2::after {
+    content: " (laranja)";
+  }
+}
+
+/* De 769px até 1024px → Rosa */
+@media (min-width: 769px) and (max-width: 1024px) {
+  h2 {
+    color: hotpink;
+  }
+  h2::after {
+    content: " (rosa)";
+  }
+}
+
+/* De 1025px até 1366px → Roxo */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  h2 {
+    color: purple;
+  }
+  h2::after {
+    content: " (roxo)";
+  }
+}
+
+/* De 1367px até 1920px → Amarelo */
+@media (min-width: 1367px) and (max-width: 1920px) {
+  h2 {
+    color: yellow;
+  }
+  h2::after {
+    content: " (amarelo)";
+  }
+}
+
+/* Maior que 1920px → Verde */
+@media (min-width: 1921px) {
+  h2 {
+    color: green;
+  }
+  h2::after {
+    content: " (verde)";
+  }
+}

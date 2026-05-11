@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 12 - PWEB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Funções Construtora/h1>
+
+        <!-- QUESTÃO 1: Retângulo com Função Construtora -->
+        <div class="section">
+            <h2>1-Retângulo - Função Construtora</h2>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="base">Base (x):</label>
+                    <input type="number" id="base" placeholder="Digite a base" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="altura">Altura (y):</label>
+                    <input type="number" id="altura" placeholder="Digite a altura" step="0.01">
+                </div>
+            </div>
+            <button onclick="calcularAreaRetangulo()">Calcular Área</button>
+            
+            <div id="resultadoRetangulo" class="result">
+                <h3>📐 Resultado do Retângulo:</h3>
+                <div id="conteudoRetangulo"></div>
+            </div>
+        </div>
+
+        <!-- QUESTÃO 2: Conta Bancária com Classes e Herança -->
+        <div class="section">
+            <h2>2 Conta Corrente com Saldo Especial</h2>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="nomeCorrente">Nome do Correntista:</label>
+                    <input type="text" id="nomeCorrente" placeholder="Digite o nome">
+                </div>
+                <div class="form-group">
+                    <label for="bancoCorrente">Banco:</label>
+                    <input type="text" id="bancoCorrente" placeholder="Digite o banco">
+                </div>
+                <div class="form-group">
+                    <label for="numeroCorrente">Número da Conta:</label>
+                    <input type="text" id="numeroCorrente" placeholder="Digite o número da conta">
+                </div>
+                <div class="form-group">
+                    <label for="saldoCorrente">Saldo:</label>
+                    <input type="number" id="saldoCorrente" placeholder="Digite o saldo" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="limiteEspecial">Limite Especial:</label>
+                    <input type="number" id="limiteEspecial" placeholder="Digite o limite especial" step="0.01">
+                </div>
+            </div>
+            <button onclick="criarContaCorrente()">Criar Conta Corrente</button>
+            
+            <div id="resultadoCorrente" class="result">
+                <h3> Dados da Conta Corrente:</h3>
+                <div id="conteudoCorrente"></div>
+            </div>
+        </div>
+
+        <!-- Conta Poupança -->
+        <div class="section">
+            <h2>3 Conta Poupança com Juros</h2>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="nomePoupanca">Nome do Correntista:</label>
+                    <input type="text" id="nomePoupanca" placeholder="Digite o nome">
+                </div>
+                <div class="form-group">
+                    <label for="bancoPoupanca">Banco:</label>
+                    <input type="text" id="bancoPoupanca" placeholder="Digite o banco">
+                </div>
+                <div class="form-group">
+                    <label for="numeroPoupanca">Número da Conta:</label>
+                    <input type="text" id="numeroPoupanca" placeholder="Digite o número da conta">
+                </div>
+                <div class="form-group">
+                    <label for="saldoPoupanca">Saldo:</label>
+                    <input type="number" id="saldoPoupanca" placeholder="Digite o saldo" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="jurosPoupanca">Taxa de Juros (%):</label>
+                    <input type="number" id="jurosPoupanca" placeholder="Digite a taxa de juros" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="dataVencimento">Data de Vencimento:</label>
+                    <input type="date" id="dataVencimento">
+                </div>
+            </div>
+            <button onclick="criarContaPoupanca()">Criar Conta Poupança</button>
+            
+            <div id="resultadoPoupanca" class="result">
+                <h3>Dados da Conta Poupança:</h3>
+                <div id="conteudoPoupanca"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

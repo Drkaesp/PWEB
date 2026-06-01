@@ -1,0 +1,12 @@
+let http = require('http');
+let server = http.createServer( function(req,res){
+let opcao = req.url;
+if (opcao=='/historia'){
+res.end("<html><body>historia  da fatec sorocaba</body>
+</html>");
+}
+else if (opcao=='/cursos'){
+res.end("<html><body>Cursos</body></html>";
+
+server.listen(3000);
+console.log('servidor iniciado');

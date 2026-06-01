@@ -1,0 +1,7 @@
+function exibeMensagensNaOrdem(mensagem, callback){
+console.log(mensagem);
+callback();
+}
+exibeMensagemNaOrdem('Essa é a primeira mesnagem exibida na ordem',function(){
+console.log('essa é a segunda mensagem exibida na ordem');
+});

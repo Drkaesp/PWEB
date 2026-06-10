@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContentFlow - Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-layer-group"></i>
+                <h1>ContentFlow</h1>
+            </div>
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Pesquisar itens...">
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" id="btnHistory" title="Histórico de Atividades">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </button>
+                <button class="btn-icon" id="btnThemeToggle" title="Alternar Tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="btn-primary" id="btnNovoItem">
+                    <i class="fa-solid fa-plus"></i> Novo Item
+                </button>
+            </div>
+        </header>
+
+        <!-- Kanban Board -->
+        <main class="kanban-board">
+            <!-- Column 1: Ideias -->
+            <section class="kanban-column" id="col-ideias">
+                <div class="column-header">
+                    <h2>Ideias</h2>
+                    <span class="item-count">0</span>
+                </div>
+                <div class="kanban-items" data-status="Ideias" id="list-ideias">
+                    <!-- Cards will be injected here -->
+                </div>
+            </section>
+
+            <!-- Column 2: Produção -->
+            <section class="kanban-column" id="col-producao">
+                <div class="column-header">
+                    <h2>Produção</h2>
+                    <span class="item-count">0</span>
+                </div>
+                <div class="kanban-items" data-status="Produção" id="list-producao">
+                    <!-- Cards will be injected here -->
+                </div>
+            </section>
+
+            <!-- Column 3: Publicados -->
+            <section class="kanban-column" id="col-publicados">
+                <div class="column-header">
+                    <h2>Publicados</h2>
+                    <span class="item-count">0</span>
+                </div>
+                <div class="kanban-items" data-status="Publicados" id="list-publicados">
+                    <!-- Cards will be injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- CRUD Modal -->
+    <div class="modal-overlay" id="crudModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Criar / Editar Item de Conteúdo</h2>
+                <button class="btn-close" id="btnCloseModal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="itemForm">
+                    <input type="hidden" id="itemId">
+                    
+                    <div class="form-group">
+                        <label for="titulo">Título</label>
+                        <input type="text" id="titulo" required placeholder="Digite o título do conteúdo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" rows="4" required placeholder="Detalhes do conteúdo..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="categoria">Categoria</label>
+                            <select id="categoria" required>
+                                <option value="Artigo">Artigo</option>
+                                <option value="Vídeo">Vídeo</option>
+                                <option value="Social">Social</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+                        <div class="form-group half">
+                            <label for="prioridade">Prioridade</label>
+                            <select id="prioridade" required>
+                                <option value="Baixa">🟢 Baixa</option>
+                                <option value="Média">🟡 Média</option>
+                                <option value="Alta">🔴 Alta</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="vencimento">Data de Vencimento</label>
+                            <input type="date" id="vencimento" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="responsaveis">Responsáveis</label>
+                            <input type="text" id="responsaveis" required placeholder="Ex: Miguel, João">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full">
+                            <label for="status">Status</label>
+                            <select id="status" required>
+                                <option value="Ideias">Ideias</option>
+                                <option value="Produção">Produção</option>
+                                <option value="Publicados">Publicados</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="btnCancel">Cancelar</button>
+                <button class="btn-primary" id="btnSave">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Sidebar -->
+    <div class="sidebar-overlay" id="historySidebarOverlay">
+        <div class="history-sidebar">
+            <div class="history-header">
+                <h2>Histórico de Atividades</h2>
+                <button class="btn-close" id="btnCloseHistory"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="history-body" id="historyLogsContainer">
+                <!-- Logs will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

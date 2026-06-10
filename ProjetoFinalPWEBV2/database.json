@@ -1,0 +1,42 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "titulo": "Roteiro de Vídeo Tech",
+      "descricao": "Criar roteiro para o próximo vídeo sobre as novidades do JavaScript.",
+      "categoria": "Vídeo",
+      "prioridade": "Alta",
+      "vencimento": "2026-06-10",
+      "responsaveis": "Miguel",
+      "status": "Ideias"
+    },
+    {
+      "id": "2",
+      "titulo": "Post Instagram sobre UX",
+      "descricao": "Carrossel com dicas de usabilidade para formulários.",
+      "categoria": "Social",
+      "prioridade": "Média",
+      "vencimento": "2026-06-15",
+      "responsaveis": "Ana",
+      "status": "Produção"
+    }
+  ],
+  "logs": [
+    {
+      "time": "10/06/2026 às 18:50",
+      "message": "A tarefa <b>Post Instagram sobre UX</b> foi movida para <b>Produção</b>."
+    },
+    {
+      "time": "10/06/2026 às 18:50",
+      "message": "A tarefa <b>Roteiro de Vídeo Tech</b> foi movida para <b>Ideias</b>."
+    },
+    {
+      "time": "10/06/2026 às 18:50",
+      "message": "A tarefa <b>Roteiro de Vídeo Tech</b> foi movida para <b>Produção</b>."
+    },
+    {
+      "time": "10/06/2026 às 18:50",
+      "message": "A tarefa <b>Post Instagram sobre UX</b> foi movida para <b>Ideias</b>."
+    }
+  ]
+}
